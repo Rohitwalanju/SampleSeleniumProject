@@ -23,7 +23,9 @@ public class Operations {
 		FileInputStream fi = new FileInputStream(
 				"C:\\Users\\91966\\eclipse-workspace\\SampleSeleniumProject\\src\\test\\java\\Utilities\\Data.properties");
 		prop.load(fi);
+		
 		fi.close();
+		
 
 	}
 

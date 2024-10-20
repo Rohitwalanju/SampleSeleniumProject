@@ -16,7 +16,7 @@ public class TestLogin extends BaseClass {
 		Login l=new Login(driver);
 		l.login();
 		boolean status=l.dashboardOptionCheck.isDisplayed();
-		Assert.assertFalse(status);
+		Assert.assertTrue(status);
 
 	}
 	

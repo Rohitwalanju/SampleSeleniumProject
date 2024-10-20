@@ -29,21 +29,21 @@ public class BaseClass {
 	}
 	
 	
-	public String captureScreen(String tname) throws IOException {
+	public static String captureScreen(String tname) throws IOException {
 
-		String timeStamp = new SimpleDateFormat("yyyyMMddhhmmss").format(new Date());
-	    String screenshotDir = System.getProperty("user.dir") + "\\screenshots";
+		String timeStamp = new SimpleDateFormat("yyyy.MM.dd.hh.mm.ss").format(new Date());
+	    //String screenshotDir = System.getProperty("user.dir") + "\\screenshots";
 
 		    
-	    File dir = new File(screenshotDir);
-	    if (!dir.exists()) {
-	        dir.mkdirs();
-	    }
+//	    File dir = new File(screenshotDir);
+//	    if (!dir.exists()) {
+//	        dir.mkdirs();
+//	    }
 
 		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
 		File sourceFile = takesScreenshot.getScreenshotAs(OutputType.FILE);
 		
-	    String targetFilePath = screenshotDir + "\\" + tname + "_" + timeStamp + ".png";
+	    String targetFilePath = ".\\screenshots" +"\\" + tname + "_" + timeStamp + ".png";
 
 		File targetFile=new File(targetFilePath);
 		

@@ -16,13 +16,12 @@ public class Login extends Operations {
 
 	// public Properties prop;
 
-	public Login(WebDriver driver) throws IOException {
+	public Login(WebDriver driver) throws IOException  {
 		super(driver);
 		// TODO Auto-generated constructor stub
 
 	}
 
-	
 	@FindBy(name = "username")
 	WebElement enterUserName;
 
@@ -31,20 +30,21 @@ public class Login extends Operations {
 
 	@FindBy(xpath = "//button[@type='submit']")
 	WebElement submitButton;
-	
-	@FindBy(xpath="//span[@class='oxd-topbar-header-breadcrumb']")
-   public static WebElement dashboardOptionCheck;
-	
+
+	@FindBy(xpath = "//span[@class='oxd-topbar-header-breadcrumb']")
+	public static WebElement dashboardOptionCheck;
+
 	public void login() throws IOException {
 
-		String url = getProperty("Url");
-		String username = getProperty("Username");
-		String password = getProperty("Password");
+		// String url = getProperty("Url");
+		// String username = getProperty("Username");
+		// String password = getProperty("Password");
 
-		driver.get(url);
-		enterUserName.sendKeys(username);
-		enterPassword.sendKeys(password);
+		driver.get(getProperty("Url"));
+		enterUserName.sendKeys(getProperty("Username"));
+		enterPassword.sendKeys(getProperty("Password"));
 		submitButton.click();
+
 	}
 
 }

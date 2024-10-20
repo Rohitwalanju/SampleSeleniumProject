@@ -41,7 +41,7 @@ public class ExtentReportManager implements ITestListener {
 
 		sparkReporter.config().setDocumentTitle("orangeHRM Automation Report"); // Title of report
 		sparkReporter.config().setReportName("orangeHRM Functional Testing"); // name of the report
-		sparkReporter.config().setTheme(Theme.DARK);
+		sparkReporter.config().setTheme(Theme.STANDARD);
 		
 		extent = new ExtentReports();
 		extent.attachReporter(sparkReporter);
@@ -79,8 +79,10 @@ public class ExtentReportManager implements ITestListener {
 		test.log(Status.INFO, result.getThrowable().getMessage());
 		
 		try {
-			String imgPath = new BaseClass().captureScreen(result.getName());
+			//String imgPath = new BaseClass().captureScreen(result.getName());
+			String imgPath =BaseClass.captureScreen(result.getName());
 			test.addScreenCaptureFromPath(imgPath);
+			
 			
 		} catch (IOException e1) {
 			e1.printStackTrace();
@@ -89,7 +91,7 @@ public class ExtentReportManager implements ITestListener {
 
 	public void onTestSkipped(ITestResult result) {
 		test = extent.createTest(result.getTestClass().getName());
-		test.assignCategory(result.getMethod().getGroups());
+		//test.assignCategory(result.getMethod().getGroups());
 		test.log(Status.SKIP, result.getName()+" got skipped");
 		test.log(Status.INFO, result.getThrowable().getMessage());
 	}
@@ -98,14 +100,14 @@ public class ExtentReportManager implements ITestListener {
 		
 		extent.flush();
 		
-		String pathOfExtentReport = System.getProperty("user.dir")+"\\reports\\"+repName;
-		File extentReport = new File(pathOfExtentReport);
-		
-		try {
-			Desktop.getDesktop().browse(extentReport.toURI());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		//String pathOfExtentReport = System.getProperty("user.dir")+"\\reports\\"+repName;
+//		//File extentReport = new File(pathOfExtentReport);
+//		
+//		try {
+//			Desktop.getDesktop().browse(extentReport.toURI());
+//		} catch (IOException e) {
+//			e.printStackTrace();
+	//	}
 
 		
 
